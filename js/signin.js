@@ -3,6 +3,8 @@ function logar(){
   let senha = document.getElementById('senha').value;
   if(login =="admin"&& senha=="admin"){
     location.href = "home.html";
+  } else if(login == ""&& senha=="") {
+    alert('Preencha os campos abaixo');
   } else {
     alert('Usuario ou senha incorretos')
   }

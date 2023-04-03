@@ -1,0 +1,82 @@
+<template>
+    <div class="column is-6 is-half is-offset-one-quarter">
+        <h1 class="title">Cadastro de Paciente</h1>
+
+        <!-- Indentação:   -->
+        <form @submit.prevent="enviarcadastro"> 
+            <div class="field">
+                <label class="label" for="nome">Nome Completo</label>
+                <input type="text" class="input" id="nome" v-model="form.nome">
+            </div>
+            <div class="field">
+                <label class="label" for="data_nascimento">Data de Nacimento</label>
+                <input type="date" class="input" id="data_nascimento" v-model="form.data_nascimento">
+            </div>
+            <div class="field">
+                <label class="label" for="cpf">CPF</label>
+                <input type="text" class="input" id="cpf" v-model="form.cpf">
+            </div>
+            <div class="field">
+                <label class="label" for="rg">RG</label>
+                <input type="text" class="input" id="rg" v-model="form.rg">
+            </div>
+            <div class="field"> 
+                <label class="label" for="email">E-mail</label>
+                <input type="email" class="input" id="email" v-model="form.email">
+            </div>
+            <div class="field">
+                <label class="label" for="cartaodosus">Cartão do SUS</label>
+                <input type="text" class="input" id="cartaodosus" v-model="form.cartaodosus">
+            </div>
+            <div class="field">
+                <label class="label" for="celular">Celular:</label>
+                <input type="text" class="input" id="celular" v-model="form.celular" placeholder="(00) 00000-0000">
+            </div>
+
+            <button type="submit" class="button is-success">Confirmar:</button>
+        </form>
+    </div>
+</template>
+
+<script lang="ts">
+ import { reactive } from 'vue';
+
+ interface cadastro {
+    nome: string;
+    email: string;
+    cartaodosus: string;
+    rg: number;
+    cpf: number;
+    data_nascimento: number;
+    celular: number;
+   
+ }
+
+export default{
+    setup() {
+
+        const form = reactive<cadastro>({
+            nome: '',
+            email: '',
+            cartaodosus: '',
+            rg: '',
+            cpf:"",
+            data_nascimento:"",
+            celular: ""
+            
+        });
+        const enviarcadastro = () => {
+            console.log(form);
+        }
+        return {
+            form,
+            enviarcadastro
+        }
+    }
+}
+
+</script>
+
+
+<style scoped>
+</style>

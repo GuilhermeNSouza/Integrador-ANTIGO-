@@ -9,3 +9,9 @@ function logar(){
     alert('Usuario ou senha incorretos')
   }
 }
+function Cadastrar(){
+  let Cadastrar = document.getElementById('Cadastrar');
+  
+    location.href = "Cadastro.html";
+ 
+  }
